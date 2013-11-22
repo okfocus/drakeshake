@@ -37,8 +37,18 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="shortcut icon" href="favicon.ico"/>
 	<link rel="image_src" href="icon.png"/>
-	<script>
-
+	<script type="text/javascript">
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"http://drakeshake.com/logo.png",
+				"http://drakeshake.com/appstore.jpg"
+			)
 	</script>
 	<style>
 	@-webkit-keyframes wobble {
@@ -62,12 +72,12 @@
 		40% { -moz-transform: translateX(18%) rotate(6deg); }
 		50% { -moz-transform: translateX(-15%) rotate(-5deg); }
 		60% { -moz-transform: translateX(12%) rotate(4deg); }
-		70% { -moz-transform: translateX(-9%) rotate(-3deg); }
+		70% { -moz-transform: translateX(-9%) rotat(-3deg); }
 		80% { -moz-transform: translateX(6%) rotate(2deg); }
 		90% { -moz-transform: translateX(-3%) rotate(-1deg); }
 		100% { -moz-transform: translateX(0%); }
 	}
-	body{
+	body.drake{
 		text-align:center;
 		background:black;
 		margin:2% 0;
@@ -76,7 +86,7 @@
 		color:white;
 		overflow-x:hidden;
 	}
-	div{
+	.drake div{
 		display:table;
 		position: absolute;
 		height: 100%;
@@ -84,38 +94,37 @@
 		-moz-animation:0.6s 1 wobble;
 		width:100%;
 	}
-	span{
+	.drake span{
 		display:table-cell;
 		vertical-align:middle;
 	}
-	#logo{
+	.drake #logo{
 		max-width:80%;
 	}
-	h1{
+	.drake h1{
 		margin:20px 0;
 		padding:0;
 	}
-	a {
+	.drake a {
 		color:white;
 	}
-	a img{
+	.drake a img{
 		width:300px;
 		border-radius: 27px;
 		border: 3px solid white;
 		margin-bottom:10px;
 		-webkit-transition:all 0.2s ease-in;
 	}
-	a img:hover {
+	.drake a img:hover {
 		-webkit-filter:invert(100%);
 	}
-	p{
+	.drake p{
 		margin:0;
 		padding:0;
 		margin-bottom:30px;
-		
 	}
 	@media only screen and (max-width: 480px) {
-		h1{
+		.drake h1{
 			margin:20px 0;
 			padding:0;
 			font-size:17px;
@@ -123,7 +132,7 @@
 	}
 	</style>
 </head>
-<body>
+<body class="drake">
 	<div>
 		<span>
 			<img src="logo.png" id="logo">
